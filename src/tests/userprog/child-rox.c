@@ -10,8 +10,6 @@
 #include <syscall.h>
 #include "tests/lib.h"
 
-const char *test_name = "child-rox";
-
 static void
 try_write (void) 
 {
@@ -31,11 +29,14 @@ try_write (void)
 int
 main (int argc UNUSED, char *argv[]) 
 {
+  test_name = "child-rox";  // sadece değer ataması, tanım değil
+
   msg ("begin");
   try_write ();
 
   if (!isdigit (*argv[1]))
     fail ("bad command-line arguments");
+
   if (atoi (argv[1]) > 1) 
     {
       char cmd[128];
@@ -53,3 +54,4 @@ main (int argc UNUSED, char *argv[])
 
   return 12;
 }
+

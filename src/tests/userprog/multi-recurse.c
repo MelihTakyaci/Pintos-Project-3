@@ -5,13 +5,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <syscall.h>
-#include "tests/lib.h"
-
-const char *test_name = "multi-recurse";
+#include "tests/lib.h"  // test_name buradan gelir
 
 int
 main (int argc UNUSED, char *argv[]) 
 {
+  test_name = "multi-recurse";  // Sadece değer atıyoruz
+
   int n = atoi (argv[1]);
 
   msg ("begin %d", n);
@@ -32,3 +32,4 @@ main (int argc UNUSED, char *argv[])
   msg ("end %d", n);
   return n;
 }
+

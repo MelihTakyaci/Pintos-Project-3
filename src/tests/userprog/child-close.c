@@ -11,13 +11,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <syscall.h>
-#include "tests/lib.h"
-
-const char *test_name = "child-close";
+#include "tests/lib.h"  // test_name buradan geliyor
 
 int
 main (int argc UNUSED, char *argv[]) 
 {
+  test_name = "child-close";  // sadece değer ataması yapılıyor
+
   msg ("begin");
   if (!isdigit (*argv[1]))
     fail ("bad command-line arguments");
@@ -26,3 +26,4 @@ main (int argc UNUSED, char *argv[])
 
   return 0;
 }
+
