@@ -1,13 +1,51 @@
-Pintos is a simple OS written in C that runs on 32-bit x86 architecture. It's partially implemented and it's up to you to add various features and enhancements. For more information see http://web.stanford.edu/class/cs140/projects/pintos/pintos.html.
+# my-pintos-tests
 
-This is a complete implementation that passes all tests.
+**Pintos** is a simple instructional operating system written in C for the 32-bit x86 architecture. This repository contains a complete implementation that passes **all test cases** defined by the original Pintos project.
 
-Highlights of my implementation include:
+📚 For background on Pintos, see the original project page:  
+http://web.stanford.edu/class/cs140/projects/pintos/pintos.html
 
-    - A fair scheduler that works across various load types (I/O bound, CPU)
-    - Priority scheduling including priority donation to avoid priority inversion
-    - Virtual memory subsystem that includes swapping to disk, file memory mapping, and shared read-only pages
-    - A multithreaded file system which includes a write back buffer cache with read ahead and sparse files
-    
-Thanks to Surya for the instructions on how to get pintos to run in qemu:
-  https://tssurya.wordpress.com/2014/08/16/installing-pintos-on-your-machine/
+---
+
+## 🚀 Features Implemented
+
+This implementation includes all major components and enhancements expected in a modern OS kernel:
+
+- ✅ **Fair Scheduler**
+  - Handles both I/O-bound and CPU-bound loads effectively.
+- ✅ **Priority Scheduling**
+  - Includes **priority donation** to handle priority inversion.
+- ✅ **Virtual Memory System**
+  - Swapping to disk
+  - Memory-mapped files (mmap)
+  - Shared read-only pages
+- ✅ **Multithreaded File System**
+  - Write-back buffer cache
+  - Read-ahead mechanism
+  - Sparse file support
+
+---
+
+## 🔧 Setup & Build
+
+### Requirements
+
+- GCC with `-m32` support (32-bit toolchain)
+- QEMU
+- Python 2 or compatible `perl` scripts
+- `make`, `gdb`, and standard Unix tools
+
+### Quick Start
+
+```bash
+cd src/threads
+make check   # Run thread tests
+
+cd ../userprog
+make check   # Run user program tests
+
+cd ../vm
+make check   # Run virtual memory tests
+
+cd ../filesys
+make check   # Run file system tests
